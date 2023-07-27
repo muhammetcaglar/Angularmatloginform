@@ -1,0 +1,21 @@
+.cardContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  }
+  mat-card{
+  min-width: 30%;
+  }
+.registerButton
+{
+  text-decoration: none;
+  color: white;
+
+}
+.loginformButtons{
+  display: flex;
+   align-items: center;
+   flex-direction:row;
+   justify-content: space-between;
+}
