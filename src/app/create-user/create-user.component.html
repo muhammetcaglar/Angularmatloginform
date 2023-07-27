@@ -38,14 +38,17 @@
         <mat-label>Password again</mat-label>
         <input type="password" matInput placeholder="Enter password again"  formControlName="repassword">
         <mat-error *ngIf="createUserForm.get('repassword')?.hasError('minlength')">
+          The password length must be eight characters!
+        </mat-error>
+        <mat-error *ngIf="createUserForm.get('repassword')?.hasError('not_the_same')">
           The password must be same!
         </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Adress</mat-label>
-        <textarea matInput placeholder="Enter Adress"  formControlName="adress"></textarea>
-        <mat-error *ngIf="createUserForm.get('adress')?.hasError('required')">
-          Please enter Adress
+        <textarea matInput placeholder="Enter Address"  formControlName="address"></textarea>
+        <mat-error *ngIf="createUserForm.get('address')?.hasError('required')">
+          Please enter Address
         </mat-error>
       </mat-form-field>
       <div class="loginformButtons" >
