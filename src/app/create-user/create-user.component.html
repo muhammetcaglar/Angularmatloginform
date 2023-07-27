@@ -5,24 +5,52 @@
     <mat-card-title>User Register</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="loginForm" class="d-flex flex-column">
+    <form [formGroup]="createUserForm" class="d-flex flex-column">
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput placeholder="Enter first name"  formControlName="firstName">
+        <mat-error *ngIf="createUserForm.get('firstName')?.hasError('required')">
+          Please enter first name
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input matInput placeholder="Enter last name"  formControlName="lastName">
+        <mat-error *ngIf="createUserForm.get('lastName')?.hasError('required')">
+          Please enter last name
+        </mat-error>
+      </mat-form-field>
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput placeholder="Enter email"  formControlName="email">
-        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+        <mat-error *ngIf="createUserForm.get('email')?.hasError('required')">
           Email is required please enter right format!
         </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Password</mat-label>
         <input type="password" matInput placeholder="Enter password" formControlName="password">
-        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+        <mat-error *ngIf="createUserForm.get('password')?.hasError('minlength')">
           The password length must be eight characters!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password again</mat-label>
+        <input type="password" matInput placeholder="Enter password again"  formControlName="repassword">
+        <mat-error *ngIf="createUserForm.get('repassword')?.hasError('minlength')">
+          The password must be same!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Adress</mat-label>
+        <textarea matInput placeholder="Enter Adress"  formControlName="adress"></textarea>
+        <mat-error *ngIf="createUserForm.get('adress')?.hasError('required')">
+          Please enter Adress
         </mat-error>
       </mat-form-field>
       <div class="loginformButtons" >
         <a  mat-raised-button color="accent" class="registerButton" routerLink="/login">Login</a>
-        <button [disabled]="loginForm.invalid" mat-raised-button color="primary">Register</button>
+        <button [disabled]="createUserForm.invalid" mat-raised-button color="primary">Register</button>
       </div>
 
   </form>
